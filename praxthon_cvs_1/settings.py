@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-97^+^5f2(!9k4ymp@jc3csk-2*30+%l4i4oa9ko8^=9-=5op_#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://git.heroku.com/chatbotpraxthon.git"]
 
 
 # Application definition
@@ -141,17 +141,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ##################
 #   HEROKU ENV
-##################
-if not DEBUG:    
-    import dj_database_url
-    import os
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES["default"].update(db_from_env)
+##################   
+import dj_database_url
+import os
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES["default"].update(db_from_env)
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
-    STATIC_URL = '/static/'
-    # Extra places for collectstatic to find static files.
-    STATICFILES_DIRS = (  
-    os.path.join(BASE_DIR, 'static'),
-    )
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
+STATIC_URL = '/static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (  
+os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

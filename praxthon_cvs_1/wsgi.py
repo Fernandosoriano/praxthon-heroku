@@ -15,6 +15,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'praxthon_cvs_1.settings')
 
 application = get_wsgi_application()
 
-
-from whitenoise.django import DjangoWhiteNoise
-application = DjangoWhiteNoise(application)
+### OLD way
+# from whitenoise.django import DjangoWhiteNoise
+# application = DjangoWhiteNoise(application)
